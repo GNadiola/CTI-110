@@ -17,4 +17,9 @@ print("-----Addition and Subtraction-----")
 print("\n")
 
 #User input; inputting integers
+starting_integer = int(input("Enter a starting integer: "))
+add_integer = int(input("Enter an integer to add: "))
+subtract_integer = int(input("Enter an integer to subtract: "))
 
+print("\n")
+print(starting_integer, "+", add_integer, "-", subtract_integer, "is equal to", starting_integer + add_integer - subtract_integer )
