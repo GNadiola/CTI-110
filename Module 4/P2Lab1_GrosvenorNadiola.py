@@ -12,3 +12,6 @@ circumference = 2 * 3.14 * radius
 area = 3.14 * radius * radius
 
 #Outputs
+print("The diameter of the circle is ", f'{diameter:.1f}')
+print("The circumference of the circle is ", f'{circumference:.2f}')
+print("The area of the circle is ", f'{area:.3f}')
