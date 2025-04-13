@@ -1,6 +1,6 @@
 # Nadiola Grosvenor
 # 04/07/2025
-# P1HW2
+# P2HW1
 # Travel Plans
 
 #Ask user to enter values
@@ -17,16 +17,13 @@ print("\n")
 
 #Output
 print("--------Travel Expenses--------")
-print("\n")
-
-print("Location: ", destination)
-print("Initial Budget: ", budget)
-print("\n")
-
-print("Fuel: ", f'{gas:.2f}')
-print("Accomodation: ", accomodation)
-print("Food: ", food)
-print("\n")
-
-print("Remaining Balance: ", cost)
+print("Location:          ", destination)
+print("Initial Budget:     $", f'{budget:.2f}')
+print("Fuel:               $", f'{gas:.2f}')
+print("Accomodation:       $", f'{accomodation:.2f}')
+print("Food:               $", f'{food:.2f}')
 print("-------------------------------")
+
+print("\n")
+
+print("Remaining Balance:  $", f'{cost:.2f}')
