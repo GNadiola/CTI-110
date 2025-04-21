@@ -19,6 +19,8 @@ else:
     over_pay = 0 
     overtime_hours = 0
     reg_pay = hours_worked * pay_rate
+    gross_pay = reg_pay + over_pay
 
 print("Employee Name: ", name, "\n")
-
+print(" Hours Worked    Pay Rate    Overtime    Overtime Pay    RegHour Pay     Gross Pay", "\n")
+print( "    ", hours_worked, "        ", pay_rate, "          ", overtime_hours,"         ", over_pay, "           ", reg_pay, "         ", gross_pay,)
