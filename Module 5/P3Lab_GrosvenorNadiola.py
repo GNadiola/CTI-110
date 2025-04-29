@@ -37,8 +37,3 @@ if coins >= 1:
     else: 
         print("No Change")
 
-
-
-        for i in [0,1,2]:
-    bob.forward(50)
-    bob.left(120)
