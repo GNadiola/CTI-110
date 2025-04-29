@@ -36,3 +36,9 @@ if coins >= 1:
         print(f'{pennies:.0f}', "Penny")
     else: 
         print("No Change")
+
+
+
+        for i in [0,1,2]:
+    bob.forward(50)
+    bob.left(120)
