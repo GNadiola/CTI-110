@@ -13,6 +13,11 @@ bob.pendown()
 for i in [0,1,2,3]:
     bob.forward(50)
     bob.left(90)
+
+bob.penup()
+bob.forward(50)
+bob.pendown()
+
 for i in [0,1,2]:
     bob.forward(50)
     bob.left(120)
