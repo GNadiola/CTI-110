@@ -1,73 +1,131 @@
 # Nadiola Grosvenor
-# 4/27/2025
+# 5/5/2025
 # P4Lab2
-# Use of loops, functions and module import to create a program
+# Use of loops, functions and module import to create a game program
 
+import time
 import random
 
+print("Welcome to Duck Fight!\nYou will create two ducks and choose their weapons. They will then battle it out in a series of rounds!! \U0001F94A")
 
 def create_character():
     #function to create character
+
     name = input("Name your duck: ")
-    print("Your duck's agility can range from 0 to 150." )
+    print("Your duck's agility can range from 0 to 15." )
     agility = int(input(f"Enter {name}'s agility level: "))
-    if agility > 150 or agility <0:
+    if agility > 15 or agility <0:
         print("Error")
-        agility = int(input(f"Enter {name}'s agility level: "))
+        agility = int(input(f"Enter your duck's agility level: "))
         
     print("There are three weapons to choose from! \n 1. Stick  2. Rock  3. Water" )
     weapon = int(input(f"Enter the number of {name}'s weapon: "))
-    print("Your duck's stamina can range from 0 to 150." )
-    stamina = int(input(f"Enter{name}'s stamina level: ")) 
-    if stamina > 150 or stamina <0:
+    print("Your duck's stamina can range from 0 to 15." )
+    stamina = int(input(f"Enter {name}'s stamina level: ")) 
+    if stamina > 15 or stamina <0:
         print("Error")
         stamina = int(input(f"Enter {name}'s stamina level: "))
-    lives = 3
-    character = {'Name': name, 'Agility': agility, 'Weapon #': weapon, 'Stamina': stamina, 'Lives': lives }
-    print(f"{name} has been created \U0001F431")
+    life_force = 45
+    character = {'Name': name, 'Agility': agility, 'Weapon #': weapon, 'Stamina': stamina, 'Life Force': life_force }
+    print(f"{name} has been created \U0001F986")
     return character
 
 def display_characters(characters):
     #displays all characters
-    print("\U0001FAB6	\U0001F338 \U0001F4AE \U0001FAB7 \U0001F41D \U0001FAB7 \U0001F4AE \U0001F338 \U0001FAB6	")
+    print("\U0001F986 \U0001FAB6 \U0001F338 \U0001F4AE \U0001FAB7 \U0001F41D \U0001FAB7 \U0001F4AE \U0001F338 \U0001FAB6 \U0001F986")
     print("~~~~~~~ALL DUCKS~~~~~~~")
     for char in characters:
-        print(f"Name: {char['name']}, Agility: {char['agility']}, Weapon: {char['weapon']}, Stamina: {char['stamina']}, Lives:{char['lives']}")
+        print(f"Name: {char['Name']}, Agility: {char['Agility']}, Weapon: {char['Weapon #']}, Stamina: {char['Stamina']}, Life Force:{char['Life Force']}")
+    print("\U0001F986 \U0001F986 \U0001F986 \U0001F986 \U0001F986 \U0001F986 \U0001F986 \U0001F986 \U0001F986 \U0001F986 \U0001F986")
 
-def fighter_class_abilities(abilities):
+
+#def fighter_class_abilities(powers):
     #displays the abilities of each fighter class
-    print("\U0001FA84 \U0001FAA8 \U0001F30A")
-    print("~~~~~Weapon Attacks~~~~~")
+   # print("\U0001FA84 \U0001FAA8 \U0001F30A")
+    #print("~~~~~Weapon Attacks~~~~~")
+
+def is_alive(character):
+        return character['Life Force'] > 0
     
 def attack(attacker, defender):
     #performs attack and tells whether the character won or lost
-    damage = random.randint(0, 100)
-    if ['weapon'] == 1:
-        damage = damage * 0.5
-    if ['weapon'] == 2:
+    damage = random.randint(0, 10)
+    random_bonus = random.randint(0, 10)
+    if attacker['Weapon #'] == 1:
         damage = damage * 3
-    if ['weapon'] == 3:
+    if attacker['Weapon #'] == 2:
+        damage = damage * 0.5
+    if attacker['Weapon #'] == 3:
         damage = damage * 2
 
-    if damage >= 33:
-        defender['lives'] -=1 
-    elif damage >= 66:
-        defender['lives'] -=2
-    elif damage >= 99: 
-        defender['lives'] -=3
-    else:
-        defender['lives'] = 3
+    damage = max(0, int(damage + (attacker['Agility'] * 0.5) + (attacker['Stamina'] * 0.3) - random_bonus))  
 
-    print(f"{attacker['name']} is using... ")
-    if ['weapon'] == 1:
-        print(f"...a rock, and tossing it weakly at {defender['name']} \U0001FAA8")
-    elif ['weapon'] == 2:
-        print(f"...AVADA KEDAVRA on {defender['name']}!!!")
-    elif ['weapon'] == 3:
-        print(f"...waterbending~ on {defender['name']}!")
+    print(f"{attacker['Name']} is using... ", end="")
+    time.sleep(2) #dramatic pause
+    weapon = attacker['Weapon #']
+    attack_type = random.randint(0, 3)
+    if weapon == 1:
+        if attack_type == 0:
+         print(f"...a stick, and casts AVADA KEDAVRA on {defender['Name']}! \U0001FA84")
+         damage = damage*3
+        if attack_type == 1:
+         print(f"...a stick, and casts an attack on {defender['Name']}! \U0001FA84")
+         damage = damage*2
+        if attack_type == 2:
+         print(f"...a stick, and casts AVADA KEDAVRA on {defender['Name']}! \U0001FA84")
+         damage = damage*3
+        if attack_type == 3:
+         print(f"...a stick, and casts a shrinking spell on {defender['Name']}! \U0001FA84")
+         damage = damage*1
+    elif weapon == 2:
+        if attack_type == 0:
+            print(f"...a rock, and throws a direct hit at {defender['Name']} \U0001FAA8")
+            damage = damage*3
+        if attack_type == 1:
+            print(f"...a rock, and roughly tosses it at {defender['Name']} \U0001FAA8")
+            damage = damage*2
+        if attack_type == 2:
+            print(f"...a rock, and throws a direct hit at {defender['Name']}! \U0001FAA8")
+            damage = damage*3
+        if attack_type == 3:
+            print(f"...a rock, and weakly tosses it at {defender['Name']} \U0001FAA8")
+            damage = damage*1
+    elif weapon == 3:
+        if attack_type == 0:
+            print(f"...WATERBENDING on {defender['Name']}! \U0001F30A")
+            damage = damage*3
+        if attack_type == 1:
+            print(f"...a small wave on {defender['Name']}! \U0001F30A")
+            damage = damage*2
+        if attack_type == 2:
+            print(f"...WATERBENDING on {defender['Name']}! \U0001F30A")
+            damage = damage*3
+        if attack_type == 3:
+            print(f"...a small splash on {defender['Name']}! \U0001F30A")
+            damage = damage*1
 
-    print(f"The damage done to {defender['name']} is {damage}/100!!")
-    return defender ['lives']
+    
+    print(f"The damage done to {defender['Name']} is {damage}/45!!")
+    
+
+    if damage >= 44: 
+        defender['Life Force'] -=3
+        print(f"{attacker['Name']}'s attack was SUPER strong!!")
+    elif damage >= 30:
+        defender['Life Force'] -=2
+        print(f"{attacker['Name']}'s attack was very strong!!")
+    elif damage >= 15:
+        defender['Life Force'] -=1 
+        print(f"{attacker['Name']}'s attack was kinda strong!")
+    elif damage < 15:
+        print(f"{attacker['Name']}'s attack wasn't very strong!")
+    defender['Life Force'] -= damage
+    if defender['Life Force'] < 0:
+            defender['Life Force'] = 0
+            
+    print(f"{defender['Name']} now has {defender['Life Force']} life force.")
+    return defender ['Life Force']
+
 
 def main():
     #options for creating character, displaying character, attacking, end game.
@@ -82,4 +140,31 @@ def main():
     display_characters(ducks)
 
     #Make an attack
-    duck_1['lives'] = attack(duck_1, duck_2) 
+    round_num = 1
+    while is_alive(duck_1) and is_alive(duck_2):
+        print(f"\n🔁 Round {round_num}")
+        duck_2['Life Force'] = attack(duck_1, duck_2)
+
+        if not is_alive(duck_2):
+            print(f"\n💀 {duck_2['Name']} has been defeated!")
+            break
+
+        duck_1['Life Force'] = attack(duck_2, duck_1)
+
+        if not is_alive(duck_1):
+            print(f"\n💀 {duck_1['Name']} has been vanquished!")
+            break
+        
+        #moving to next round with dramatic pause
+        time.sleep(3) 
+        input("Hit Enter to continue to the next round \U0001F94A")
+        round_num += 1
+
+    # Declare winner
+    if duck_1['Life Force'] > 0:
+        print(f"\n🏆 {duck_1['Name']} is the champion!")
+    else:
+        print(f"\n🏆 {duck_2['Name']} is the champion!")
+
+if __name__ == "__main__":
+    main()
