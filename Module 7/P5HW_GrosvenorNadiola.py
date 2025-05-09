@@ -39,6 +39,15 @@ def ducks_moving(): #using turtle to make images move
         duck2.goto(200, 0)
 
     turtle.done()"""
+def start_menu():
+    print("\n🐥 Welcome to Duck Fight!")
+    print("1. Start Game")
+    print("2. Exit")
+
+    choice = input("Choose an option (1 or 2): ")
+    if choice == "2":
+        print("Goodbye! 🐤")
+        exit()  # This stops the program
 
 print("Welcome to Duck Fight!\nYou will create two ducks and choose their weapons. They will then battle it out in a series of rounds!! \U0001F94A")
 
@@ -161,14 +170,24 @@ def attack(attacker, defender):
 def main():
     #options for creating character, displaying character, attacking, end game.
     #create character
+    start_menu()
+
     duck_1 = create_character()
     duck_2 = create_character()
+
+    input("\n")
+    time.sleep(3) 
+    input("Hit Enter to continue")
 
     #list characters
     ducks = [duck_1, duck_2]
 
     #display characters
     display_characters(ducks)
+
+    input("\n")
+    time.sleep(3) 
+    input("Hit Enter to continue")
 
     #Make an attack
     round_num = 1
@@ -188,7 +207,13 @@ def main():
         
         #moving to next round with dramatic pause
         time.sleep(3) 
-        input("Hit Enter to continue to the next round \U0001F94A")
+        # Ask player if they want to continue
+        
+        choice = input("Hit Enter to continue to the next round \U0001F94A \n Or type 'exit' to quit: ")
+        if choice.lower() == "exit":
+             print("Game exited early. See you next time! 🦆")
+             return  # or use exit()
+
         round_num += 1
 
     # Declare winner
