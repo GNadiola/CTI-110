@@ -49,7 +49,6 @@ def start_menu():
         print("Goodbye! 🐤")
         exit()  # This stops the program
 
-print("Welcome to Duck Fight!\nYou will create two ducks and choose their weapons. They will then battle it out in a series of rounds!! \U0001F94A")
 
 def create_character():
     #function to create character
@@ -172,6 +171,8 @@ def main():
     #create character
     start_menu()
 
+    print("Welcome to Duck Fight!\nYou will create two ducks and choose their weapons. They will then battle it out in a series of rounds!! \U0001F94A")
+
     duck_1 = create_character()
     duck_2 = create_character()
 
@@ -206,7 +207,7 @@ def main():
             break
         
         #moving to next round with dramatic pause
-        time.sleep(3) 
+        time.sleep(2) 
         # Ask player if they want to continue
         
         choice = input("Hit Enter to continue to the next round \U0001F94A \n Or type 'exit' to quit: ")
@@ -222,6 +223,7 @@ def main():
     else:
         print(f"\n🏆 {duck_2['Name']} is the champion!")
     #ducks_moving()
-
+    print("Thanks for playing!!!")
+    start_menu()
 if __name__ == "__main__":
     main()
