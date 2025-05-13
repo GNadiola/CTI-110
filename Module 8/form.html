@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Caribbean Food Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #e0f7fa;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .comment-box {
+            background-color: #fff3e0;
+            height: 120px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        button[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+        }
+        button[type="reset"] {
+            background-color: #f44336;
+            color: white;
+        }
+        .radio-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Favorite Caribbean Food Form</h2>
+    <form action="#" method="post">
+        <!-- First Name -->
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" required>
+
+        <!-- Last Name -->
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name" required>
+
+        <!-- Rice Dropdown -->
+        <label for="rice-type">Food Type:</label>
+        <select id="rice-type" name="rice-type">
+            <option value="white-rice">Curry and Rice</option>
+            <option value="brown-rice">Jerk Chicken</option>
+            <option value="basmati-rice">Cookup</option>
+        </select>
+
+        <!-- Amount of Rice (Radio Buttons) -->
+        <div class="radio-group">
+            <label>Spice Levele:</label>
+            <input type="radio" id="one-bowl" name="rice-amount" value="1-bowl">
+            <label for="one-bowl">No Spice</label>
+            <input type="radio" id="two-bowls" name="rice-amount" value="2-bowls">
+            <label for="two-bowls">Mild Spice</label>
+            <input type="radio" id="three-bowls" name="rice-amount" value="3-bowls">
+            <label for="three-bowls">Medium Spice</label>
+            <input type="radio" id="four-bowls" name="rice-amount" value="4-bowls">
+            <label for="four-bowls">Spicy</label>
+        </div>
+
+        <!-- Comment Area -->
+        <label for="comments">Comments:</label>
+        <textarea id="comments" name="comments" class="comment-box" placeholder="Write your comments here..." required></textarea>
+
+        <!-- Submit and Reset Buttons -->
+        <div class="button-container">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
